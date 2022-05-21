@@ -18,7 +18,7 @@ image.src = images[imageIndex]
 bubbleButtons[imageIndex].textContent = '●'
 
 for (let i = 0; i < bubbleButtons.length; i++) {
-    bubbleButtons[i].addEventListener('click', function(e) {
+    bubbleButtons[i].addEventListener('click', (e) => {
         imageIndex = i;
         image.src = images[imageIndex]
         for (let i =0; i < bubbleButtons.length; i++) bubbleButtons[i].textContent = '○'
@@ -26,14 +26,14 @@ for (let i = 0; i < bubbleButtons.length; i++) {
     })
 }
 
-previousButton.addEventListener('click', function () {
+previousButton.addEventListener('click', () => {
     if (imageIndex > 0) imageIndex--
     image.src = images[imageIndex]
     for (let i = 0; i < bubbleButtons.length; i ++) bubbleButtons[i].textContent = '○'
     bubbleButtons[imageIndex].textContent = '●'
 })
 
-nextButton.addEventListener('click', function () {
+nextButton.addEventListener('click', () => {
     if (imageIndex < 5) imageIndex++
     image.src = images[imageIndex]
     for (let i = 0; i < bubbleButtons.length; i++) bubbleButtons[i].textContent = '○'
