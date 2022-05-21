@@ -6,3 +6,36 @@ const images = [
     './assets/5.jpg',
     './assets/6.jpg'
 ]
+
+//Declaring Variables
+const image = document.querySelector('.image')
+const nextButton = document.querySelector('.next')
+const previousButton = document.querySelector('.previous')
+const bubbleButtons = document.querySelectorAll('.bubble')
+
+let imageIndex = 0
+image.src = images[imageIndex]
+bubbleButtons[imageIndex].textContent = '●'
+
+for (let i = 0; i < bubbleButtons.length; i++) {
+    bubbleButtons[i].addEventListener('click', function(e) {
+        imageIndex = i;
+        image.src = images[imageIndex]
+        for (let i =0; i < bubbleButtons.length; i++) bubbleButtons[i].textContent = '○'
+        bubbleButtons[imageIndex].textContent = '●'
+    })
+}
+
+previousButton.addEventListener('click', function () {
+    if (imageIndex > 0) imageIndex--
+    image.src = images[imageIndex]
+    for (let i = 0; i < bubbleButtons.length; i ++) bubbleButtons[i].textContent = '○'
+    bubbleButtons[imageIndex].textContent = '●'
+})
+
+nextButton.addEventListener('click', function () {
+    if (imageIndex < 5) imageIndex++
+    image.src = images[imageIndex]
+    for (let i = 0; i < bubbleButtons.length; i++) bubbleButtons[i].textContent = '○'
+    bubbleButtons[imageIndex].textContent = '●'
+})
